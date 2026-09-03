@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07090d">
+<meta name="description" content="Manimaran Anandan — RCM Operations & Quality Leader | US Healthcare RCM | AR & Denial Management | Revenue Integrity | Lean Six Sigma">
+<title>MANIMARAN — Revenue Cycle Intelligence</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#07090d; --bg2:#0b0f15; --panel:rgba(16,21,29,.74); --panel2:#111823;
+  --text:#f2f5f7; --muted:#8d9aa8; --line:rgba(255,255,255,.095);
+  --mint:#65f0c2; --mint2:#25c99a; --gold:#e7b66b; --red:#ff5f68;
+  --shadow:0 30px 90px rgba(0,0,0,.45);
+  --radius:22px; --max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg); color:var(--text); font-family:Manrope,system-ui,sans-serif;
+  line-height:1.6; overflow-x:hidden; -webkit-font-smoothing:antialiased;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;
+  background:
+    radial-gradient(circle at 75% 18%,rgba(101,240,194,.08),transparent 28%),
+    radial-gradient(circle at 15% 70%,rgba(231,182,107,.055),transparent 25%),
+    linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+  background-size:auto,auto,48px 48px,48px 48px;
+  mask-image:linear-gradient(to bottom,black,transparent 92%);
+}
+body:after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+img{max-width:100%;display:block}
+.container{width:min(var(--max),calc(100% - 48px));margin:auto}
+.mono{font-family:"DM Mono",monospace}
+.eyebrow{font:500 11px "DM Mono",monospace;letter-spacing:.18em;text-transform:uppercase;color:var(--mint)}
+.section{padding:120px 0;position:relative}
+.section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:50px}
+.section-head h2{font-size:clamp(36px,5vw,68px);letter-spacing:-.055em;line-height:.98;max-width:760px}
+.section-head p{color:var(--muted);max-width:390px;font-size:14px}
+.serif{font-family:"Playfair Display",serif;font-style:italic}
+
+/* INTRO */
+#intro{
+  position:fixed;inset:0;z-index:200;background:#050608;display:grid;place-items:center;
+  transition:opacity .8s,visibility .8s;
+}
+#intro.hide{opacity:0;visibility:hidden;pointer-events:none}
+.intro-inner{text-align:center}
+.intro-mark{
+  width:74px;height:74px;border:1px solid rgba(101,240,194,.35);border-radius:50%;
+  display:grid;place-items:center;margin:0 auto 28px;position:relative;
+}
+.intro-mark:before,.intro-mark:after{content:"";position:absolute;border:1px solid rgba(101,240,194,.22);border-radius:50%;inset:-10px;animation:orbit 2.6s linear infinite}
+.intro-mark:after{inset:-20px;animation-direction:reverse;animation-duration:4s}
+.intro-mark b{font:700 18px "DM Mono";color:var(--mint)}
+.intro-title{font-size:clamp(32px,7vw,76px);letter-spacing:-.06em;font-weight:800}
+.intro-sub{color:var(--muted);margin-top:10px;font:400 11px "DM Mono";letter-spacing:.2em;text-transform:uppercase}
+.intro-loader{height:1px;width:220px;background:#182019;margin:30px auto 0;overflow:hidden}
+.intro-loader i{display:block;width:0;height:100%;background:var(--mint);animation:load 1.7s cubic-bezier(.7,0,.2,1) forwards}
+@keyframes load{to{width:100%}} @keyframes orbit{to{transform:rotate(360deg)}}
+
+/* NAV */
+.nav{
+  position:fixed;z-index:100;top:0;left:0;right:0;padding:18px 0;
+  background:linear-gradient(to bottom,rgba(7,9,13,.92),transparent);transition:.35s;
+}
+.nav.scrolled{background:rgba(7,9,13,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;letter-spacing:-.05em;font-size:16px}.logo span{color:var(--mint)}
+.nav-links{display:flex;gap:28px;color:#aab4be;font:400 11px "DM Mono";letter-spacing:.08em;text-transform:uppercase}
+.nav-links a{transition:.2s}.nav-links a:hover{color:var(--mint)}
+.nav-cta{border:1px solid var(--line);padding:9px 14px;border-radius:999px;font:500 11px "DM Mono";transition:.25s}
+.nav-cta:hover{border-color:var(--mint);color:var(--mint)}
+@media(max-width:780px){.nav-links{display:none}.container{width:min(var(--max),calc(100% - 32px))}}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:150px 0 90px;position:relative;overflow:hidden}
+.hero:before{
+  content:"";position:absolute;width:560px;height:560px;border-radius:50%;right:-180px;top:12%;
+  background:radial-gradient(circle,rgba(101,240,194,.11),transparent 66%);filter:blur(10px)
+}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:80px;align-items:center}
+.hero-copy .eyebrow{margin-bottom:22px}
+.hero h1{font-size:clamp(54px,7.3vw,104px);line-height:.88;letter-spacing:-.075em;max-width:900px}
+.hero h1 .accent{color:var(--mint)}
+.hero h1 .serif{font-weight:600}
+.hero-desc{max-width:670px;color:#a9b3bd;font-size:16px;margin:28px 0 34px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{border:1px solid var(--line);border-radius:999px;padding:13px 19px;font-size:12px;font-weight:700;transition:.3s;cursor:pointer;background:transparent}
+.btn.primary{background:var(--mint);color:#06130f;border-color:var(--mint)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.3)}
+.btn.ghost:hover{border-color:var(--mint);color:var(--mint)}
+.hero-meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:28px;color:#73808c;font:400 10px "DM Mono";text-transform:uppercase;letter-spacing:.08em}
+.hero-meta a:hover{color:var(--text)}
+.profile-stage{position:relative;min-height:580px;display:grid;place-items:center}
+.profile-orbit{position:absolute;width:500px;height:500px;border:1px solid rgba(101,240,194,.13);border-radius:50%;animation:spin 22s linear infinite}
+.profile-orbit:before,.profile-orbit:after{content:"";position:absolute;width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 20px var(--mint)}
+.profile-orbit:before{top:34px;left:95px}.profile-orbit:after{right:70px;bottom:90px;width:5px;height:5px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.profile-card{
+  width:min(390px,85vw);position:relative;border:1px solid rgba(255,255,255,.13);border-radius:28px;
+  background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
+  backdrop-filter:blur(18px);box-shadow:var(--shadow);overflow:hidden;transform-style:preserve-3d;
+}
+.profile-card:after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.08),transparent 55%);transform:translateX(-100%);animation:shine 5s ease-in-out infinite}
+@keyframes shine{20%,100%{transform:translateX(100%)}}
+.profile-top{display:flex;justify-content:space-between;align-items:center;padding:13px 15px;border-bottom:1px solid var(--line);font:400 9px "DM Mono";color:#8996a3}
+.live{color:var(--mint);display:flex;gap:7px;align-items:center}.live i{width:6px;height:6px;background:var(--mint);border-radius:50%;box-shadow:0 0 10px var(--mint);animation:blink 1.5s infinite}
+@keyframes blink{50%{opacity:.25}}
+.photo-wrap{aspect-ratio:1/1.08;background:#101318;overflow:hidden}
+.photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:saturate(.92) contrast(1.04)}
+.profile-info{padding:19px 20px 22px}
+.profile-info h3{font-size:22px;letter-spacing:-.04em}.profile-info p{font-size:11px;color:var(--muted);margin-top:3px}
+.scanline{height:3px;background:linear-gradient(90deg,var(--mint),transparent);margin-top:17px;opacity:.7}
+
+/* KPI TAPE */
+.kpi-tape{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(12,16,22,.82);overflow:hidden}
+.kpi-track{display:grid;grid-template-columns:repeat(6,1fr)}
+.kpi{padding:26px 22px;border-right:1px solid var(--line);min-width:0}
+.kpi:last-child{border-right:0}.kpi .value{font:500 clamp(22px,3vw,34px) "DM Mono";color:var(--mint);letter-spacing:-.07em}
+.kpi .label{font:400 9px "DM Mono";color:#71808d;text-transform:uppercase;letter-spacing:.1em;margin-top:5px}
+@media(max-width:900px){.kpi-track{grid-template-columns:repeat(3,1fr)}} @media(max-width:560px){.kpi-track{grid-template-columns:repeat(2,1fr)}}
+
+/* AI BRIEF */
+.ai-panel{border:1px solid rgba(101,240,194,.18);background:linear-gradient(135deg,rgba(101,240,194,.045),rgba(255,255,255,.015));border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.ai-top{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:20px}
+.ai-title{display:flex;align-items:center;gap:12px}.ai-icon{width:35px;height:35px;border-radius:11px;border:1px solid rgba(101,240,194,.3);display:grid;place-items:center;color:var(--mint);font:600 12px "DM Mono"}
+.ai-label{font:500 10px "DM Mono";color:var(--mint);letter-spacing:.12em;text-transform:uppercase}
+.ai-output{min-height:108px;color:#c4cdd5;font-size:15px;max-width:940px}
+.cursor{display:inline-block;width:7px;height:15px;background:var(--mint);vertical-align:-2px;animation:blink .8s infinite}
+.voice{border:1px solid var(--line);background:transparent;border-radius:999px;padding:8px 12px;font:500 9px "DM Mono";cursor:pointer}
+.voice:hover{border-color:var(--mint);color:var(--mint)}
+
+/* IMPACT */
+.impact-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.impact{position:relative;min-height:245px;border:1px solid var(--line);border-radius:20px;padding:25px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012));overflow:hidden;transition:.4s}
+.impact:hover{transform:translateY(-6px);border-color:rgba(101,240,194,.25);box-shadow:var(--shadow)}
+.impact:nth-child(1){grid-column:span 5}.impact:nth-child(2){grid-column:span 7}.impact:nth-child(3){grid-column:span 7}.impact:nth-child(4){grid-column:span 5}.impact:nth-child(5){grid-column:span 12;min-height:185px}
+.impact .num{font:500 46px "DM Mono";letter-spacing:-.08em;color:var(--mint)}
+.impact h3{font-size:16px;margin-top:18px}.impact p{color:var(--muted);font-size:12px;max-width:560px;margin-top:7px}
+.impact .micro{position:absolute;right:20px;top:22px;color:#596572;font:400 9px "DM Mono";text-transform:uppercase}
+.impact:before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-70px;bottom:-100px;background:radial-gradient(circle,rgba(101,240,194,.09),transparent 70%)}
+@media(max-width:800px){.impact:nth-child(n){grid-column:span 12}}
+
+/* RCM FLOW */
+.flow{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.flow-card{padding:23px 18px;min-height:220px;border-right:1px solid var(--line);position:relative;transition:.3s}
+.flow-card:last-child{border-right:0}.flow-card:hover{background:rgba(101,240,194,.035)}
+.flow-no{font:400 10px "DM Mono";color:#55616e}.flow-card h3{font-size:16px;line-height:1.15;margin:26px 0 10px}.flow-card p{font-size:11px;color:var(--muted)}
+.flow-metric{position:absolute;left:18px;bottom:20px;color:var(--mint);font:500 10px "DM Mono"}
+@media(max-width:1000px){.flow{grid-template-columns:repeat(3,1fr)}.flow-card:nth-child(3){border-right:0}.flow-card:nth-child(n+4){border-top:1px solid var(--line)}} 
+@media(max-width:600px){.flow{grid-template-columns:1fr}.flow-card{border-right:0;border-bottom:1px solid var(--line)}.flow-card:last-child{border-bottom:0}}
+
+/* CAREER */
+.career-wrap{display:grid;grid-template-columns:.35fr 1fr;gap:70px}
+.career-side{position:sticky;top:110px;height:max-content}.career-side .big{font-size:clamp(50px,7vw,92px);font-weight:800;letter-spacing:-.08em;line-height:.85;margin:18px 0}.career-side p{font-size:12px;color:var(--muted);max-width:260px}
+.timeline{border-left:1px solid var(--line)}
+.role{padding:0 0 55px 34px;position:relative}.role:last-child{padding-bottom:0}.role:before{content:"";position:absolute;left:-5px;top:4px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:2px solid var(--mint)}
+.role-date{font:400 10px "DM Mono";color:var(--gold);letter-spacing:.1em}.role h3{font-size:26px;letter-spacing:-.04em;margin-top:9px}.role .company{color:#8794a1;font-size:12px;margin-top:3px}.role ul{margin:20px 0 0;padding-left:18px;color:#a9b3bd;font-size:12px}.role li{margin:7px 0;padding-left:4px}
+@media(max-width:850px){.career-wrap{grid-template-columns:1fr;gap:45px}.career-side{position:static}}
+
+/* SCOREBOARD */
+.score-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.score{border:1px solid var(--line);border-radius:18px;padding:22px;background:rgba(255,255,255,.025)}
+.score-head{display:flex;justify-content:space-between;gap:20px;font-size:12px}.score-head b{font:500 11px "DM Mono";color:var(--mint)}
+.track{height:5px;background:#1a212b;border-radius:20px;margin-top:18px;overflow:hidden}.fill{height:100%;width:0;background:linear-gradient(90deg,var(--mint2),var(--mint));border-radius:20px;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+@media(max-width:650px){.score-grid{grid-template-columns:1fr}}
+
+/* SKILLS */
+.skill-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;border:1px solid var(--line);background:var(--line)}
+.skill-group{background:var(--bg);padding:28px 22px;min-height:260px}.skill-group h3{font:500 10px "DM Mono";color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}.pill{border:1px solid var(--line);border-radius:999px;padding:7px 10px;font-size:10px;color:#b7c1ca;transition:.25s}.pill:hover{border-color:rgba(101,240,194,.4);color:var(--mint);transform:translateY(-2px)}
+@media(max-width:900px){.skill-grid{grid-template-columns:1fr 1fr}} @media(max-width:550px){.skill-grid{grid-template-columns:1fr}}
+
+/* CREDENTIALS */
+.cred-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}.cred-list{border-top:1px solid var(--line)}
+.cred{display:flex;justify-content:space-between;gap:18px;padding:16px 0;border-bottom:1px solid var(--line);font-size:12px}.cred span:last-child{font:400 9px "DM Mono";color:#687582;text-align:right}
+.toolbox{display:flex;flex-wrap:wrap;gap:10px}.tool{padding:11px 14px;border:1px solid var(--line);border-radius:12px;font-size:11px;background:rgba(255,255,255,.02)}
+@media(max-width:850px){.cred-grid{grid-template-columns:1fr;gap:55px}}
+
+/* CONTACT */
+.contact{padding:120px 0 55px}
+.contact-card{border:1px solid var(--line);border-radius:30px;padding:60px;position:relative;overflow:hidden;background:radial-gradient(circle at 80% 30%,rgba(101,240,194,.1),transparent 30%),rgba(255,255,255,.02)}
+.contact-card h2{font-size:clamp(42px,7vw,92px);line-height:.9;letter-spacing:-.07em;max-width:850px}.contact-card h2 span{color:var(--mint)}
+.contact-details{display:flex;gap:28px;flex-wrap:wrap;margin-top:38px;color:#9ba8b4;font:400 11px "DM Mono"}.contact-details a:hover{color:var(--mint)}
+.footer{display:flex;justify-content:space-between;gap:20px;padding:26px 0;color:#586572;font:400 9px "DM Mono";text-transform:uppercase;letter-spacing:.08em}
+@media(max-width:650px){.contact-card{padding:32px}.footer{flex-direction:column}}
+
+/* MODAL */
+.modal{position:fixed;inset:0;z-index:150;background:rgba(0,0,0,.72);backdrop-filter:blur(12px);display:grid;place-items:center;opacity:0;visibility:hidden;transition:.3s;padding:20px}
+.modal.show{opacity:1;visibility:visible}
+.modal-box{width:min(760px,100%);max-height:85vh;overflow:auto;background:#0c1118;border:1px solid var(--line);border-radius:24px;padding:30px;box-shadow:var(--shadow)}
+.modal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}.close{border:1px solid var(--line);background:transparent;border-radius:50%;width:34px;height:34px;cursor:pointer}.close:hover{color:var(--mint);border-color:var(--mint)}
+.modal-box h2{font-size:30px;letter-spacing:-.05em}.modal-box p,.modal-box li{color:#a7b2bc;font-size:13px}.modal-box ul{padding-left:20px;margin-top:15px}.modal-box li{margin:7px 0}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+[data-tilt]{transition:transform .15s ease-out}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+
+<body>
+<div id="intro">
+  <div class="intro-inner">
+    <div class="intro-mark"><b>MA</b></div>
+    <div class="intro-title">MANIMARAN</div>
+    <div class="intro-sub">Revenue Cycle Intelligence · Quality · Transformation</div>
+    <div class="intro-loader"><i></i></div>
+  </div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#top">MANIMARAN<span>.</span></a>
+    <nav class="nav-links">
+      <a href="#impact">Impact</a><a href="#rcm">RCM</a><a href="#career">Career</a><a href="#skills">Capabilities</a><a href="#credentials">Credentials</a>
+    </nav>
+    <a class="nav-cta" href="Manimaran_Anandan_Resume.pdf" download>DOWNLOAD RESUME</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy reveal">
+      <div class="eyebrow">● OPEN TO MANAGER / ASSISTANT MANAGER ROLES</div>
+      <h1>Where <span class="accent">revenue</span> meets <span class="serif">precision.</span></h1>
+      <p class="hero-desc">
+        RCM Operations & Quality Leader with 7+ years across US Healthcare Revenue Cycle Management —
+        AR Follow-up, Denial Management, Billing, Payment Posting, Revenue Integrity, Quality Governance and Process Excellence.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="#impact">Explore the impact ↓</a>
+        <button class="btn ghost" onclick="openBrief()">AI-style executive brief</button>
+        <a class="btn ghost" href="Manimaran_Anandan_Resume.pdf" download>Download resume (PDF) ↓</a>
+      </div>
+      <div class="hero-meta">
+        <a href="mailto:maran579@gmail.com">maran579@gmail.com</a>
+        <a href="tel:+918248628028">+91 82486 28028</a>
+        <span>Chennai · India</span>
+        <a href="https://linkedin.com/in/maran006" target="_blank" rel="noopener">LinkedIn / maran006</a>
+      </div>
+    </div>
+
+    <div class="profile-stage reveal" data-tilt>
+      <div class="profile-orbit"></div>
+      <div class="profile-card">
+        <div class="profile-top">
+          <span>RCM LEADERSHIP PROFILE / 2026</span>
+          <span class="live"><i></i> ACTIVE</span>
+        </div>
+        <div class="photo-wrap"><img src="portrait.jpg" alt="Professional portrait of Manimaran Anandan"></div>
+        <div class="profile-info">
+          <h3>Manimaran Anandan</h3>
+          <p>Supervisor · RCM Operations & Quality · AGS Health</p>
+          <div class="scanline"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="kpi-tape">
+  <div class="container kpi-track">
+    <div class="kpi"><div class="value count" data-target="3.4" data-decimal="1">$0M+</div><div class="label">AR recoveries</div></div>
+    <div class="kpi"><div class="value count" data-target="30">0%</div><div class="label">AR defects reduced</div></div>
+    <div class="kpi"><div class="value count" data-target="95">0%+</div><div class="label">Clean claim rate</div></div>
+    <div class="kpi"><div class="value count" data-target="97">0%+</div><div class="label">SLA compliance</div></div>
+    <div class="kpi"><div class="value count" data-target="18">0%</div><div class="label">AR &gt;120 days ↓</div></div>
+    <div class="kpi"><div class="value count" data-target="15">0%</div><div class="label">DSO reduction</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="ai-panel reveal">
+      <div class="ai-top">
+        <div class="ai-title"><div class="ai-icon">AI</div><div><div class="ai-label">Executive intelligence layer</div><div style="font-size:12px;color:#7d8995">A recruiter-ready 20-second profile readout</div></div></div>
+        <button class="voice" onclick="speakBrief()">▶ VOICE INTRO</button>
+      </div>
+      <div class="ai-output" id="aiOutput"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="impact">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">01 / MEASURABLE IMPACT</div><h2>Numbers that tell the story.</h2></div>
+      <p>Selected outcomes from AR, quality, denial management, governance and process improvement work.</p>
+    </div>
+    <div class="impact-grid">
+      <article class="impact reveal"><span class="micro">RECOVERY</span><div class="num">$3.4M+</div><h3>AR recoveries</h3><p>Delivered through analytics-driven follow-up and denial management strategies.</p></article>
+      <article class="impact reveal"><span class="micro">QUALITY / DEFECTS</span><div class="num">−30%</div><h3>AR defects reduced</h3><p>Structured RCA, CAPA and process controls reduced recurring defects while strengthening quality performance.</p></article>
+      <article class="impact reveal"><span class="micro">REVENUE CYCLE</span><div class="num">95%+</div><h3>Clean claim rate</h3><p>Improved through targeted quality feedback, process controls and focused improvement actions.</p></article>
+      <article class="impact reveal"><span class="micro">SERVICE</span><div class="num">97%+</div><h3>SLA compliance</h3><p>Maintained consistently across portfolios while driving AR aging and DSO improvements.</p></article>
+      <article class="impact reveal"><span class="micro">FLOW / CASH</span><div class="num">−18% / −15%</div><h3>AR &gt;120 days / DSO</h3><p>Analytics-led follow-up strategies cut AR &gt;120 days by 18% and contributed to a 15% DSO reduction.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="rcm" style="padding-top:50px">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">02 / RCM COMMAND MAP</div><h2>Every critical stage. One operating view.</h2></div>
+      <p>From claim integrity to cash recovery — with quality and governance threaded through the cycle.</p>
+    </div>
+    <div class="flow reveal">
+      <article class="flow-card"><span class="flow-no">01</span><h3>Billing &<br>Charge Integrity</h3><p>Billing oversight and quality audits to catch defects before they become denials.</p><span class="flow-metric">95%+ CLEAN CLAIMS</span></article>
+      <article class="flow-card"><span class="flow-no">02</span><h3>Claims &<br>Payment Posting</h3><p>Monitored TAT, productivity and SLA performance across submission and posting workflows.</p><span class="flow-metric">97%+ SLA</span></article>
+      <article class="flow-card"><span class="flow-no">03</span><h3>Payer Adjudication<br>& AR Follow-up</h3><p>Medicare, Medicaid and commercial payer follow-up with aging and account-level analysis.</p><span class="flow-metric">−18% AR &gt;120D</span></article>
+      <article class="flow-card"><span class="flow-no">04</span><h3>Denials &<br>Root Cause</h3><p>Denial trends, revenue leakage, RCA and CAPA to prevent recurring issues.</p><span class="flow-metric">−30% DEFECTS</span></article>
+      <article class="flow-card"><span class="flow-no">05</span><h3>Quality<br>Governance</h3><p>Audits, scorecards, calibration, compliance reviews and quality governance.</p><span class="flow-metric">100+ FTEs</span></article>
+      <article class="flow-card"><span class="flow-no">06</span><h3>Revenue Integrity<br>& Governance</h3><p>Client reviews, executive reporting, transitions, escalations and financial impact.</p><span class="flow-metric">$3.4M+ RECOVERED</span></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="career">
+  <div class="container">
+    <div class="career-wrap">
+      <aside class="career-side reveal">
+        <div class="eyebrow">03 / CAREER ARC</div>
+        <div class="big">7+<br><span class="serif">years</span></div>
+        <p>Progressive growth from AR Analyst to Supervisor at AGS Health — expanding from account-level recovery to multi-client operations, quality governance and executive stakeholder management.</p>
+      </aside>
+      <div class="timeline">
+        <article class="role reveal">
+          <div class="role-date">APR 2025 — PRESENT</div><h3>Supervisor</h3><div class="company">AGS Health · Chennai, Tamil Nadu, India</div>
+          <ul>
+            <li>Led and monitored end-to-end US Healthcare RCM operations across multi-client portfolios spanning Billing, Payment Posting, AR Follow-up, Denial Management and Quality.</li>
+            <li>Monitored DSO, AR Aging, Denial Rate, Net Collections, Productivity, TAT and Account Health to identify risks and prioritize interventions.</li>
+            <li>Drove AR and denial performance improvement, identifying revenue leakage, aging trends, process defects and payer-related issues.</li>
+            <li>Served as client governance and operations SPOC for business reviews, performance discussions, escalations and action-plan reviews.</li>
+            <li>Developed executive dashboards and MIS translating operational data into risks, root causes, financial impact and corrective actions.</li>
+            <li>Led client transitions, onboarding and process migration, ensuring operational readiness, SLA alignment, knowledge transfer and stabilization.</li>
+            <li>Managed escalations through structured RCA, CAPA and stakeholder governance; mentored teams on RCM performance and process controls.</li>
+          </ul>
+        </article>
+        <article class="role reveal">
+          <div class="role-date">OCT 2022 — APR 2025</div><h3>Quality Team Leader</h3><div class="company">AGS Health · Chennai, Tamil Nadu, India</div>
+          <ul>
+            <li>Led RCM Quality Governance and Process Excellence across AR, Billing and Denial Management supporting 100+ FTEs.</li>
+            <li>Designed and executed RCM audits, identifying denial trends, process gaps, revenue leakage and recurring defects.</li>
+            <li>Performed structured RCA and implemented CAPA, reducing AR defects by 30%.</li>
+            <li>Established quality scorecards, calibration frameworks, audit standards and governance mechanisms.</li>
+            <li>Partnered with Operations, Training and Process Excellence teams to deliver a 20% increase in operational efficiency.</li>
+            <li>Conducted HIPAA, CMS, payer guideline and client SOP compliance reviews and supported audit readiness.</li>
+            <li>Designed SOPs, KPI dashboards, audit frameworks and executive reporting; mentored Quality Analysts.</li>
+          </ul>
+        </article>
+        <article class="role reveal">
+          <div class="role-date">JUN 2021 — OCT 2022</div><h3>Quality Analyst</h3><div class="company">AGS Health · Chennai, Tamil Nadu, India</div>
+          <ul>
+            <li>Conducted quality audits across AR and Billing processes against HIPAA, CMS, payer and client requirements.</li>
+            <li>Identified denial patterns, AR risks, process defects and rework drivers through data-driven quality analysis.</li>
+            <li>Improved Clean Claim Rate to 95%+ through structured quality feedback, process controls and targeted improvement actions.</li>
+            <li>Delivered performance analysis and quality reports to leadership for operational decision making.</li>
+          </ul>
+        </article>
+        <article class="role reveal">
+          <div class="role-date">APR 2019 — JUN 2021</div><h3>AR Analyst</h3><div class="company">AGS Health · Chennai, Tamil Nadu, India</div>
+          <ul>
+            <li>Managed end-to-end AR follow-up for Medicare, Medicaid and commercial payers, resolving denials, underpayments, reimbursement issues and outstanding balances.</li>
+            <li>Analyzed AR aging, payer behavior, denial trends and account-level issues to prioritize high-value and aging accounts.</li>
+            <li>Reduced AR &gt;120 days by 18% and contributed to a 15% reduction in DSO through analytics-driven follow-up strategies.</li>
+            <li>Worked across insurance verification, eligibility validation, claim status, denial resolution and reimbursement workflows.</li>
+            <li>Applied payer-specific knowledge and account analysis to identify recovery opportunities and reduce avoidable aging.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="scorecard">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">04 / PERFORMANCE SCOREBOARD</div><h2>The rates that matter.</h2></div>
+      <p>Impact metrics represented as a visual operating scorecard — not a generic skill meter.</p>
+    </div>
+    <div class="score-grid">
+      <div class="score reveal"><div class="score-head"><span>Clean claim rate</span><b>95%+</b></div><div class="track"><div class="fill" data-width="95"></div></div></div>
+      <div class="score reveal"><div class="score-head"><span>SLA compliance</span><b>97%+</b></div><div class="track"><div class="fill" data-width="97"></div></div></div>
+      <div class="score reveal"><div class="score-head"><span>First-pass yield improvement</span><b>+25%</b></div><div class="track"><div class="fill" data-width="25"></div></div></div>
+      <div class="score reveal"><div class="score-head"><span>AR defects reduced</span><b>−30%</b></div><div class="track"><div class="fill" data-width="30"></div></div></div>
+      <div class="score reveal"><div class="score-head"><span>AR &gt;120 days reduced</span><b>−18%</b></div><div class="track"><div class="fill" data-width="18"></div></div></div>
+      <div class="score reveal"><div class="score-head"><span>DSO reduction</span><b>−15%</b></div><div class="track"><div class="fill" data-width="15"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">05 / CAPABILITY STACK</div><h2>Built for the operating room of RCM.</h2></div>
+      <p>Operations, quality, analytics, leadership and transformation — connected rather than isolated.</p>
+    </div>
+    <div class="skill-grid reveal">
+      <div class="skill-group"><h3>RCM Operations</h3><div class="pills">
+        <span class="pill">Revenue Cycle Management</span><span class="pill">AR Follow-up</span><span class="pill">Denial Management</span><span class="pill">Billing Operations</span><span class="pill">Payment Posting</span><span class="pill">Revenue Integrity</span><span class="pill">Collections</span><span class="pill">DSO Reduction</span><span class="pill">AR Aging</span><span class="pill">Clean Claim Rate</span>
+      </div></div>
+      <div class="skill-group"><h3>Quality & Governance</h3><div class="pills">
+        <span class="pill">Quality Assurance</span><span class="pill">Quality Governance</span><span class="pill">RCM Audits</span><span class="pill">Audit Strategy</span><span class="pill">Calibration</span><span class="pill">Quality Scorecards</span><span class="pill">SOP Governance</span><span class="pill">HIPAA</span><span class="pill">CMS</span><span class="pill">Payer Compliance</span>
+      </div></div>
+      <div class="skill-group"><h3>Process Excellence</h3><div class="pills">
+        <span class="pill">Lean Six Sigma</span><span class="pill">Continuous Improvement</span><span class="pill">Process Optimization</span><span class="pill">RCA</span><span class="pill">CAPA</span><span class="pill">FMEA</span><span class="pill">Pareto Analysis</span><span class="pill">Defect Reduction</span><span class="pill">Rework Reduction</span><span class="pill">First-Pass Yield</span><span class="pill">COPQ</span>
+      </div></div>
+      <div class="skill-group"><h3>Analytics · Leadership · AI</h3><div class="pills">
+        <span class="pill">Advanced Excel</span><span class="pill">Power BI</span><span class="pill">KPI Management</span><span class="pill">MIS Reporting</span><span class="pill">Dashboard Development</span><span class="pill">Trend Analysis</span><span class="pill">Team Leadership</span><span class="pill">Client Governance</span><span class="pill">Stakeholder Management</span><span class="pill">Transition & Onboarding</span><span class="pill">AI-Enabled Process Transformation</span><span class="pill">Workflow Automation</span>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="credentials">
+  <div class="container">
+    <div class="cred-grid">
+      <div class="reveal">
+        <div class="eyebrow">06 / CREDENTIALS</div>
+        <h2 style="font-size:42px;letter-spacing:-.05em;margin:12px 0 30px">Proof of practice.</h2>
+        <div class="cred-list">
+          <div class="cred"><span>Microsoft Certified: AI Transformation Leader</span><span>548FFT-F57AB1</span></div>
+          <div class="cred"><span>Lean Six Sigma Black Belt (LSSBB)</span><span>GG/LSSBB/25/0221347</span></div>
+          <div class="cred"><span>Lean Six Sigma Green Belt (LSSGB)</span><span>GG/LSSGB/25/0222268</span></div>
+          <div class="cred"><span>ISO 9001:2015/Amd 1:2024 — QMS</span><span>7090-22762925</span></div>
+          <div class="cred"><span>Total Quality Management</span><span>GG/TQM/26/02715</span></div>
+          <div class="cred"><span>Generative AI Mastermind — Outskills</span><span>16-hour workshop</span></div>
+          <div class="cred"><span>Fundamentals of Lean</span><span>obrwes3sw3</span></div>
+          <div class="cred"><span>Inventory and Quality Management — Alison</span><span>331-22762925</span></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="eyebrow">07 / TOOLBOX</div>
+        <h2 style="font-size:42px;letter-spacing:-.05em;margin:12px 0 30px">The systems behind the work.</h2>
+        <div class="toolbox">
+          <span class="tool">NextGen</span><span class="tool">Athena</span><span class="tool">Embillz</span><span class="tool">eClinicalWorks</span><span class="tool">Insight Billing</span><span class="tool">Raintree</span><span class="tool">Carelogic</span>
+          <span class="tool">Advanced Excel</span><span class="tool">Power BI</span><span class="tool">Pivot & Macros</span><span class="tool">SharePoint</span><span class="tool">PowerPoint</span>
+          <span class="tool">HIPAA</span><span class="tool">CMS</span><span class="tool">ISO 9001</span><span class="tool">CPT / ICD-10</span>
+        </div>
+        <div style="margin-top:55px">
+          <div class="eyebrow">EDUCATION</div>
+          <div style="font-size:22px;font-weight:700;margin-top:10px">Bachelor of Engineering</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:3px">John Bosco Engineering College, Tiruvallur · 2012–2016</div>
+        </div>
+        <div style="margin-top:45px">
+          <div class="eyebrow">LANGUAGES</div>
+          <div style="display:flex;gap:10px;margin-top:12px"><span class="pill">English · Fluent</span><span class="pill">Tamil · Native</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="container">
+    <div class="contact-card reveal">
+      <div class="eyebrow">08 / NEXT CONVERSATION</div>
+      <h2 style="margin-top:18px">Let's build a <span>healthier</span> revenue cycle.</h2>
+      <div class="contact-details">
+        <a href="mailto:maran579@gmail.com">maran579@gmail.com</a>
+        <a href="tel:+918248628028">+91 82486 28028</a>
+        <span>Chennai, Tamil Nadu, India</span>
+        <a href="https://linkedin.com/in/maran006" target="_blank" rel="noopener">linkedin.com/in/maran006</a>
+      </div>
+      <div class="actions" style="margin-top:30px">
+        <a class="btn primary" href="mailto:maran579@gmail.com?subject=Interview%20Opportunity%20-%20Manimaran%20Anandan">Start a conversation ↗</a>
+        <button class="btn ghost" onclick="openBrief()">Why Manimaran?</button>
+      </div>
+    </div>
+    <div class="footer"><span>© 2026 Manimaran Anandan</span><span>RCM Operations · Quality · Revenue Integrity · Lean Six Sigma</span></div>
+  </div>
+</section>
+</main>
+
+<div class="modal" id="briefModal" onclick="if(event.target===this)closeBrief()">
+  <div class="modal-box">
+    <div class="modal-top"><div><div class="eyebrow">AI-STYLE EXECUTIVE BRIEF</div><h2>Why this profile is interview-worthy.</h2></div><button class="close" onclick="closeBrief()">×</button></div>
+    <p>Manimaran brings a progression that connects the front line of AR recovery with quality governance and multi-client RCM operations. The strongest story is the combination of operational ownership, measurable financial impact and structured improvement methodology.</p>
+    <ul>
+      <li><b>$3.4M+ AR recoveries</b> through analytics-driven follow-up and denial management.</li>
+      <li><b>30% AR defect reduction</b> through RCA, CAPA and process controls.</li>
+      <li><b>95%+ clean claim rate</b> and <b>97%+ SLA compliance</b> across operational portfolios.</li>
+      <li><b>100+ FTEs supported</b> in RCM quality governance and process excellence.</li>
+      <li>Progressive career path from <b>AR Analyst → Quality Analyst → Quality Team Leader → Supervisor</b>.</li>
+      <li>Certified in <b>Lean Six Sigma Black Belt / Green Belt</b>, AI Transformation Leadership and ISO 9001 quality systems.</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+const intro=document.getElementById('intro');
+setTimeout(()=>intro.classList.add('hide'),1900);
+
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>35),{passive:true});
+
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      const fill=e.target.querySelector?.('.fill');
+      if(fill) fill.style.width=fill.dataset.width+'%';
+      if(e.target.classList.contains('score')) {
+        const f=e.target.querySelector('.fill'); if(f) setTimeout(()=>f.style.width=f.dataset.width+'%',120);
+      }
+      observer.unobserve(e.target);
+    }
+  });
+},{threshold:.14});
+document.querySelectorAll('.reveal,.score').forEach(x=>observer.observe(x));
+
+document.querySelectorAll('.count').forEach(el=>{
+  const obs=new IntersectionObserver(es=>es.forEach(en=>{
+    if(!en.isIntersecting)return;
+    const target=parseFloat(el.dataset.target), decimal=el.dataset.decimal;
+    const start=performance.now(), dur=1100;
+    function tick(now){
+      const p=Math.min(1,(now-start)/dur), ease=1-Math.pow(1-p,3), v=target*ease;
+      el.textContent=(target===3.4?'$'+v.toFixed(1):Math.round(v))+(target===3.4?'M+':'%'+(target===95||target===97?'+':''));
+      if(p<1)requestAnimationFrame(tick);
+    } requestAnimationFrame(tick); obs.unobserve(el);
+  }),{threshold:.8}); obs.observe(el);
+});
+
+const aiText="Executive readout: Manimaran is an RCM Operations and Quality leader who combines hands-on AR and denial expertise with governance, analytics and Lean Six Sigma. He has delivered $3.4M+ in AR recoveries, reduced AR defects by 30%, achieved 95%+ clean claim rate and maintained 97%+ SLA compliance. His differentiator is the ability to move from account-level problems to portfolio-level operational decisions.";
+const aiOut=document.getElementById('aiOutput');
+let aiStarted=false;
+function typeAI(){
+  if(aiStarted)return; aiStarted=true; let i=0;
+  function t(){aiOut.innerHTML=aiText.slice(0,i)+'<span class="cursor"></span>';i++;if(i<=aiText.length)setTimeout(t,11);else aiOut.innerHTML=aiText}
+  t();
+}
+const aiObs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){typeAI();aiObs.unobserve(e.target)}}),{threshold:.4});
+aiObs.observe(aiOut);
+
+function openBrief(){document.getElementById('briefModal').classList.add('show');document.body.style.overflow='hidden'}
+function closeBrief(){document.getElementById('briefModal').classList.remove('show');document.body.style.overflow=''}
+function pickIndianMaleVoice(){
+  const voices=speechSynthesis.getVoices();
+  if(!voices.length)return null;
+  // 1) Explicit Indian-English male voices by common platform names
+  let v=voices.find(v=>/en-in/i.test(v.lang)&&/ravi|rishi|hemant|prabhat|male/i.test(v.name));
+  // 2) Any Indian-English voice at all
+  if(!v)v=voices.find(v=>/en-in/i.test(v.lang));
+  // 3) Any English voice explicitly flagged male
+  if(!v)v=voices.find(v=>/^en/i.test(v.lang)&&/male/i.test(v.name)&&!/female/i.test(v.name));
+  // 4) Fall back to any English voice
+  if(!v)v=voices.find(v=>/^en/i.test(v.lang));
+  return v||voices[0];
+}
+function speakBrief(){
+  if(!('speechSynthesis' in window)){alert('Voice intro is not supported in this browser.');return}
+  speechSynthesis.cancel();
+  const script="Hi, I'm Manimaran Anandan. I lead RCM operations and quality for US healthcare portfolios, with over seven years of hands-on experience across AR follow-up, denial management and revenue integrity. I've delivered more than three point four million dollars in AR recoveries, cut AR defects by thirty percent, and kept SLA compliance above ninety-seven percent. I bring an operator's mindset, a quality-first approach, and a genuine focus on getting the numbers right. Thanks for taking the time to look through my profile.";
+  const u=new SpeechSynthesisUtterance(script);
+  const speakNow=()=>{
+    const voice=pickIndianMaleVoice();
+    if(voice){u.voice=voice;u.lang=voice.lang;}else{u.lang='en-IN';}
+    u.rate=.93;u.pitch=.88;u.volume=1;
+    speechSynthesis.speak(u);
+  };
+  if(speechSynthesis.getVoices().length)speakNow();
+  else speechSynthesis.onvoiceschanged=speakNow;
+}
+function printResume(){window.print()}
+
+document.querySelectorAll('[data-tilt]').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    if(innerWidth<900)return;
+    const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform=`perspective(1000px) rotateY(${x*6}deg) rotateX(${-y*6}deg)`;
+  });
+  card.addEventListener('mouseleave',()=>card.style.transform='');
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeBrief()});
+</script>
+
+<style>
+@media print{
+  @page{size:A4;margin:12mm}
+  body{background:#fff!important;color:#111!important}
+  body:before,body:after,.nav,#intro,.profile-orbit,.actions,.contact-card .actions,.modal{display:none!important}
+  .hero{min-height:auto;padding:25px 0}.hero-grid{grid-template-columns:1fr 260px;gap:25px}
+  .hero h1{font-size:45px}.hero-desc,.hero-meta{color:#333}
+  .profile-card{box-shadow:none;border:1px solid #ccc;background:#fff}.profile-top{color:#555}.profile-info p{color:#555}
+  .section{padding:30px 0}.section-head{margin-bottom:20px}.section-head h2{font-size:30px}
+  .kpi-tape{background:#fff;border-color:#ccc}.kpi-track{grid-template-columns:repeat(3,1fr)}.kpi{border-color:#ddd}.kpi .value{color:#087b5c}.kpi .label{color:#555}
+  .impact,.flow-card,.score,.skill-group,.cred-list,.contact-card{break-inside:avoid;background:#fff;border-color:#ddd}
+  .impact-grid{grid-template-columns:1fr 1fr}.impact:nth-child(n){grid-column:span 1}.impact:nth-child(5){grid-column:span 2}
+  .flow{grid-template-columns:repeat(3,1fr)}.flow-card:nth-child(n){border-color:#ddd}.fill{background:#087b5c!important}
+  .skill-grid{grid-template-columns:1fr 1fr;background:#ddd}.skill-group{min-height:auto}.pill,.tool{border-color:#ddd;color:#222}
+  .career-wrap{grid-template-columns:.25fr 1fr}.role ul,.impact p,.contact-details,.hero-meta{color:#333}
+  .contact{padding-top:30px}.contact-card{padding:30px}.contact-card h2{font-size:48px}.footer{color:#666}
+}
+</style>
+</body>
+</html>
